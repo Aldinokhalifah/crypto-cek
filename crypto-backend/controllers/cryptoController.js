@@ -5,7 +5,7 @@ const cachePriceDetail = require('../cache/cryptoPriceDetailCache');
 const cacheRates = require('../cache/cryptoRatesCache');
 require('dotenv').config();
 
-const COINCAP_API_key = process.env.COINCAP_API_key;
+const COINCAP_API_key = process.env.COINCAP_API_KEY;
 
 const topCrypto = async (req, res) => {
     const cachedData = cache.get('top10');

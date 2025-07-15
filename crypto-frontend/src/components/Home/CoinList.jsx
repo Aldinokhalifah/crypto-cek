@@ -11,7 +11,7 @@ export default function CoinList() {
     useEffect(() => {
         const fetchCoins = async () => {
             try {
-                const url = 'http://localhost:3000/api/top';
+                const url = `${import.meta.env.VITE_API_URL}/api/top`;
                 const response = await axios.get(url);
                 setCoins(response.data.data);
             } catch (error) {

@@ -71,7 +71,7 @@ export default function ConverterPage() {
       setCacheStatus('fetching');
       
       // Actual API call to your backend
-      const res = await fetch(`http://localhost:3000/api/rates/${from}/${to}`);
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/rates/${from}/${to}`);
       const data = await res.json();
       
       if (!res.ok) {

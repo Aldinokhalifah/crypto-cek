@@ -51,7 +51,7 @@ export default function PriceCoins() {
 
     // Function untuk fetch coins dari API
     const fetchCoins = async () => {
-        const dataCoins = 'http://localhost:3000/api/top';
+        const dataCoins = `${import.meta.env.VITE_API_URL}/api/top`;
         const res = await axios.get(dataCoins);
         return res.data.data;
     };
@@ -59,7 +59,7 @@ export default function PriceCoins() {
     // Function untuk fetch chart data dari API
     const fetchChartData = async (coinIds) => {
         const response = await Promise.all(
-            coinIds.map(id => axios.get(`http://localhost:3000/api/price/${id}`))
+            coinIds.map(id => axios.get(`${import.meta.env.VITE_API_URL}/api/price/${id}`))
         );
 
         return response.map((res, idx) => ({
@@ -206,7 +206,7 @@ export default function PriceCoins() {
                             
                             {/* Cache Info */}
                             <div className="text-xs text-white/40">
-                                Auto-refresh every 5 minutes
+                                Refresh every 5 minutes
                             </div>
                         </div>
                     </div>

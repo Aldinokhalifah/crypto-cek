@@ -62,8 +62,8 @@ export default function SearchPrice() {
             // Normalize the search term for API call
             const normalizedTerm = normalizeCoinName(searchTerm);
             
-            const res = `http://localhost:3000/api/price/${normalizedTerm}`;
-            const res2 = `http://localhost:3000/api/${normalizedTerm}`;
+            const res = `${import.meta.env.VITE_API_URL}/api/price/${normalizedTerm}`;
+            const res2 = `${import.meta.env.VITE_API_URL}/api/${normalizedTerm}`;
 
             const [ response1, response2] = await Promise.all([
                 fetch(res),

@@ -7,10 +7,21 @@ const app = express();
 
 // Middleware
 app.use(cors({
-    origin: "https://crypto-cek.vercel.app", // atau ganti dengan URL frontend-mu di vercel
+    origin: (origin, callback) => {
+        if (!origin) return callback(null, true); // allow non-browser clients
+        if (
+        origin === "https://crypto-cek.vercel.app" ||
+        /\.vercel\.app$/.test(origin)
+        ) {
+        callback(null, true);
+        } else {
+        callback(new Error("Not allowed by CORS"));
+        }
+    },
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"]
 }));
+
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

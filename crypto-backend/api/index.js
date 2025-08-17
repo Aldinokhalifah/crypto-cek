@@ -1,5 +1,13 @@
-// api/index.js
-const serverless = require('serverless-http');
-const app = require('../app');
+const express = require('express');
+const cors = require('cors');
+const routes = require('../routes/api'); // tetap ambil routes
 
-module.exports = serverless(app);
+const app = express();
+
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+app.use('/api', routes);
+
+module.exports = app;

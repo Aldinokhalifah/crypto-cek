@@ -6,7 +6,6 @@ const cacheRates = require('../cache/cryptoRatesCache');
 require('dotenv').config();
 
 const COINCAP_API_key = process.env.COINCAP_API_KEY;
-console.log("API Key exists:", !!COINCAP_API_key);
 
 const topCrypto = async (req, res) => {
     const cachedData = cache.get('top10');

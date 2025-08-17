@@ -1,13 +1,2 @@
-const express = require('express');
-const cors = require('cors');
-const routes = require('../routes/api'); // tetap ambil routes
-
-const app = express();
-
-app.use(cors());
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-
-app.use('/api', routes);
-
+const app = require('../app'); // langsung ambil dari app.js
 module.exports = app;

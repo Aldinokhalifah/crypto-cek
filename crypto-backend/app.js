@@ -7,7 +7,7 @@ const app = express();
 
 // Middleware
 app.use(cors({
-    origin: "https://crypto-cek.vercel.app/", // atau ganti dengan URL frontend-mu di vercel
+    origin: "https://crypto-cek.vercel.app", // atau ganti dengan URL frontend-mu di vercel
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"]
 }));
